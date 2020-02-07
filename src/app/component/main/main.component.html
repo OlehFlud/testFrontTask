@@ -1,0 +1,85 @@
+<router-outlet></router-outlet>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Reading Data from XML Files</title>
+  <meta name="viewport" content="width=device-width">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+</head>
+<header>
+  <button class="logOut"  (click)="sighOut()">Вийти</button>
+  <h1 class="mat-h1">FeedReader</h1>
+
+</header>
+
+<body>
+<main>
+
+  <button (click)="toggleCollapse()" class="mat-h1-1">Show the data..Please Press on</button>
+<a> </a>
+<div *ngIf="!isCollapsed">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <td>Name</td>
+      <td>Url</td>
+      <td>Title</td>
+    </tr>
+    <tr *ngFor="let item of xmlItems">
+      <td>{{item.author.name}}</td>
+      <td>{{item.author.uri}}</td>
+      <td>{{item.title}}</td>
+    </tr>
+
+    </thead>
+  </table>
+  </div>
+  <div>{{statusMessage}}</div>
+  <div>
+    <h2 class="mat-h1">All Feeds from db</h2>
+
+    <table class="table ">
+      <thead>
+      <tr>
+        <td>ID</td>
+        <td>Username</td>
+        <td>Title</td>
+        <td>Url</td>
+      </tr>
+      <tr *ngFor="let feed of feedItems">
+        <td>{{feed.id}}</td>
+        <td>{{feed.username}}</td>
+        <td>{{feed.title}}</td>
+        <td>{{feed.url}}</td>
+        <td>
+          <input type="button" value="Видалити" (click)="deleteFeed(feed)" class="btn btn-danger"/>
+        </td>
+      </tr>
+      </thead>
+    </table>
+  </div>
+
+  <h2 class="mat-h1">Create your Feed </h2>
+
+  <!--Create House Form-->
+<div class="table-striped">
+  <form #createFeedForm="ngForm" (ngSubmit)="createFeedDefinitions ()">
+    <input type="text" name="username" ngModel
+           #priceInput="ngModel" [(ngModel)]="feed.username"
+           required placeholder="username" class="mat-input-element">
+
+    <input type="text" name="title" ngModel
+           #streetInput="ngModel" [(ngModel)]="feed.title"
+           required placeholder="title" class="mat-input-element">
+
+    <input type="text" name="url" #cityInput="ngModel" [(ngModel)]="feed.url"
+           required placeholder="url" class="mat-input-element">
+    <button class="btn btn-default">Create</button>
+  </form>
+
+</div>
+</main>
+</body>
+</html>

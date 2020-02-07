@@ -1,0 +1,16 @@
+.mat-h1{
+  text-align: center;
+}
+.table-striped{
+ display: flex;
+  justify-content: center;
+}
+.logOut{
+  margin-left: 90%;
+  font-size: 20px;
+}
+.mat-h1-1{
+margin-left:50%;
+
+  transform: translate( -50%);
+}

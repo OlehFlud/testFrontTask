@@ -1,0 +1,18 @@
+<a routerLink="/register">register</a>
+<router-outlet></router-outlet>
+
+<h1 class="NAVH1"  >Login</h1>
+
+<form class="NAVForm" #loginForm="ngForm"  (ngSubmit)="sendLoginDataUser(name.value,email.value, password.value)">
+
+  <input class="mat-input-element" type="email" required name="email" #email="ngModel" placeholder="example@example.com" ngModel>
+
+  <input class="mat-input-element" type="text" required name="name" #name="ngModel" placeholder="vasya" ngModel>
+
+  <input class="mat-input-element" type="password" required name="password" #password="ngModel" placeholder="********" ngModel >
+
+  <button  [disabled]="loginForm.invalid">Увійти</button>
+
+</form>
+
+

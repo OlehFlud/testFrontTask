@@ -1,0 +1,22 @@
+<a routerLink="/login">login</a>
+<router-outlet></router-outlet>
+<h1 class="NAVH1">Form Of Registration</h1>
+
+<!-- Registration form-->
+<form class="NAVForm" #registrationForm = "ngForm"  (ngSubmit)="registrationUser()" >
+  <input type="text" name="name" placeholder="Введіть ім’я"
+         #nameInput="ngModel" [(ngModel)]="user.name"
+         required class="mat-input-element">
+  <input type="text" name="surname" placeholder="Введіть прізвище"
+         #surnameInput="ngModel" [(ngModel)]="user.surname"
+         required class="mat-input-element">
+
+  <input type="email" name="email" placeholder="Введіть email"
+         #emailInput="ngModel"  [(ngModel)]="user.email"
+         required class="mat-input-element">
+
+  <input type="password" name="password" placeholder="Введіть пароль"
+         #passwordInput ="ngModel" [(ngModel)]="user.password"
+         required class="mat-input-element">
+  <button>REGISTER</button>
+</form>
