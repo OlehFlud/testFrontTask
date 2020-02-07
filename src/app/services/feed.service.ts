@@ -22,22 +22,6 @@ export class FeedService {
       })
   }
 
-  getFeedXML2(){
-    return this.http.get(`${configs.XML2}`,
-      {
-        headers: new HttpHeaders(),
-        responseType: 'text'
-      })
-  }
-
-
-  getFeedXML3(){
-    return this.http.get(`${configs.XML3}`,
-      {
-        headers: new HttpHeaders(),
-        responseType: 'text'
-      })
-  }
   createFeed(feed): Observable<Response> {
     const headers = new HttpHeaders()
       .set('authorization', localStorage.getItem('userToken'));
